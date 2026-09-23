@@ -1,0 +1,18 @@
+node_modules/
+dist/
+dist-release-check/
+.env
+.env.*
+!.env.example
+*.local
+*.log
+*.tsbuildinfo
+screenshots/
+
+# Local project mirror and agent/session data, not website source.
+/sources/
+/.config/
+/.pnpm-store/
+/AGENTS.md
+/SITE_AGENTS.md
+
