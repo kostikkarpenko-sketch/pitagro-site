@@ -11,7 +11,8 @@ screenshots/
 
 # Local project mirror and agent/session data, not website source.
 /sources/
-/.config/
+/.config/*
+!/.config/tsconfig.base.json
 /.pnpm-store/
 /AGENTS.md
 /SITE_AGENTS.md
