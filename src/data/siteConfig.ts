@@ -21,14 +21,14 @@ export type ProductModule = {
   preview?: ProductPreviewMedia;
 };
 
-// No invented product screenshots or Scout icon. Add approved media here.
+// Only use owner-approved product icons and media.
 // Concept images must use kind: 'concept'; they are labelled as design previews.
 export const productModules: ProductModule[] = [
   { id: 'sample', name: 'PIT Sample', status: 'Field-tested prototype', icon: '/brand/pit-sample-icon.png', summary: 'Guided sampling workflows with route planning, field guidance and records.' },
   { id: 'point', name: 'PIT Point', status: 'Field-tested prototype', icon: '/brand/pit-point-icon.png', summary: 'Precision navigation for reaching and revisiting important field locations.' },
   { id: 'lens', name: 'PIT Lens', status: 'In development', icon: '/brand/pit-lens-icon.png', summary: 'Being developed for crop and trial monitoring over time with PITCam.' },
   { id: 'sky', name: 'PIT Sky', status: 'Planned', icon: '/brand/pit-sky-icon.png', summary: 'Aerial crop observation and field mapping.' },
-  { id: 'scout', name: 'PIT Scout', status: 'Product preview', summary: 'Field scouting. Product details to follow.' },
+  { id: 'scout', name: 'PIT Scout', status: 'Product preview', icon: '/brand/pit-scout-icon.png', summary: 'Field scouting. Product details to follow.' },
 ];
 
 export const hero = {

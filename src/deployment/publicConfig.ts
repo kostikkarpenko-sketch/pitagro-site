@@ -10,7 +10,7 @@ function linkedInUrl(value = '') {
 }
 
 export const publicContact = {
-  linkedinUrl: linkedInUrl(env['VITE_LINKEDIN_URL']),
+  linkedinUrl: linkedInUrl(env['VITE_LINKEDIN_URL']?.trim() || 'https://www.linkedin.com/company/pitagro/'),
   email: /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(env['VITE_CONTACT_EMAIL'] ?? '') ? env['VITE_CONTACT_EMAIL']! : '',
 };
 
