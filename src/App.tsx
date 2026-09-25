@@ -155,7 +155,7 @@ export default function App() {
       <footer className="site-footer">
         <div className="container footer-main">
           <div className="footer-brand"><BrandLogo footer /><p>{brand.shortDescriptor}</p></div>
-          <nav className="footer-nav" aria-label="Footer navigation"><p className="footer-label">Explore</p>{navigation.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}<a href="#contact">Contact</a></nav>
+          <nav className="footer-nav" aria-label="Footer navigation"><p className="footer-label">Explore</p>{navigation.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}<a href="#contact">Contact</a><a href="/privacy/">Privacy Policy</a></nav>
           <div className="footer-contact" id="contact">
             <h2 className="footer-label">Stay connected</h2>
             <div className="social-links">
