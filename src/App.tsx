@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { about, brand, contactConfig, hero, mediaConfig, productModules, recordPreview, sampleSection } from './data/siteConfig';
+import { about, brand, contactConfig, hero, productModules, recordPreview, sampleSection } from './data/siteConfig';
 import { ProductPreview } from './components/ProductPreview';
 
 const navigation = [
@@ -74,17 +74,15 @@ export default function App() {
             <div className="hero-shade" aria-hidden="true" />
             <div className="container hero-inner">
               <div className="hero-copy">
-                <p className="eyebrow">{hero.eyebrow}</p>
-                <h1 id="hero-heading"><span>Practical technology.</span><span className="hero-accent">Simpler fieldwork.</span></h1>
+                <p className="eyebrow hero-eyebrow">{hero.eyebrow}</p>
+                <h1 id="hero-heading"><span>Practical agricultural technology</span>{' '}<span className="hero-accent">for real fieldwork.</span></h1>
                 <p className="hero-description">{hero.blurb}</p>
                 <div className="hero-actions">
                   <a className="button button-lime" href={hero.primaryCtaTarget}>{hero.primaryCtaLabel}<Icon name="arrow" /></a>
-                  <a className="text-link" href={hero.secondaryCtaTarget}>{hero.secondaryCtaLabel}<Icon name="arrow" /></a>
-                  {mediaConfig.sampleVideoUrl && <a className="video-cta" href={mediaConfig.sampleVideoUrl}><Icon name="play" />Watch PIT Sample in the field</a>}
                 </div>
+                <p className="hero-supporting-line">{hero.supportingLine}</p>
               </div>
               <div className="hero-photo-space"><p className="handwritten hero-inscription">It all starts<br />with the soil.</p></div>
-              <p className="hero-footnote"><span aria-hidden="true" />Practical technology. Real fieldwork.</p>
             </div>
           </div>
           <div className="proof-strip">
@@ -99,6 +97,7 @@ export default function App() {
           <div className="container">
             <div className="sample-intro">
               <div>
+                <p className="eyebrow flagship-label">Our flagship product</p>
                 <div className="product-lockup"><ProductIcon src="/brand/pit-sample-icon.png" /><span>PIT Sample</span></div>
                 <h2 id="sample-heading">Guided sampling.<br />Clear records.</h2>
               </div>
@@ -107,13 +106,14 @@ export default function App() {
                 <p>{sampleSection.blurb}</p><p className="handwritten">From soil to insight.</p>
               </div>
             </div>
-            <ol className="workflow-grid">
+            <h3 className="workflow-heading" id="workflow-heading">How it works</h3>
+            <ol className="workflow-grid" aria-labelledby="workflow-heading">
               {sampleSection.steps.map((step, index) => <li className={`workflow-step workflow-${step.title.toLowerCase()}`} key={step.title}>
                 <div className="workflow-media">
                   {step.title === 'Record' ? <ProductPreview media={recordPreview} /> : <img src={step.image} alt={step.alt} loading="lazy" decoding="async" />}
-                  <span className="step-number">{String(index + 1).padStart(2, '0')}</span>
+                  <span className="step-number">Step {index + 1}</span>
                 </div>
-                <div className="workflow-title"><h3>{step.title}</h3>{index < 3 && <Icon name="arrow" />}</div>
+                <div className="workflow-title"><h4>{step.title}</h4></div>
                 <p>{step.description}</p>
               </li>)}
             </ol>
@@ -122,12 +122,12 @@ export default function App() {
         <section className="products-section section" id="products" aria-labelledby="products-heading">
           <div className="container">
             <div className="section-heading">
-              <div><p className="eyebrow">The PITAGRO product family</p><h2 id="products-heading">Different tools.<br />The same field-first thinking.</h2></div>
-              <p className="section-description">Sampling, navigation and crop observation.<br />Practical technology, built around the work.</p>
+              <div><p className="eyebrow">Beyond sampling</p><h2 id="products-heading">The PIT Agro ecosystem</h2></div>
+              <p className="section-description">Alongside PIT Sample, our wider product family is taking shape around practical field workflows.</p>
             </div>
             <div className="product-grid">
-              {productModules.map((product) => <article className={`product-card product-${product.id}`} aria-labelledby={`product-${product.id}-heading`} key={product.id}>
-                <ProductIcon src={product.icon} />
+              {productModules.filter((product) => product.id !== 'sample').map((product) => <article className={`product-card product-${product.id}`} aria-labelledby={`product-${product.id}-heading`} key={product.id}>
+                {product.icon ? <ProductIcon src={product.icon} /> : <span className="product-icon" aria-hidden="true" />}
                 <div className="product-card-content">
                   <h3 id={`product-${product.id}-heading`}>PIT <span>{product.name.replace('PIT ', '')}</span></h3>
                   <p>{product.summary}</p>
@@ -148,7 +148,7 @@ export default function App() {
           <div className="about-shade" aria-hidden="true" />
           <div className="container about-content">
             <div><p className="eyebrow">About PITAGRO</p><h2 id="about-heading">{about.heading}</h2></div>
-            <div className="about-copy"><p>Built from practical field experience and designed around real agricultural workflows.</p><a className="text-link" href="#products">Meet the product family<Icon name="arrow" /></a></div>
+            <div className="about-copy">{about.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<a className="text-link" href="#products">Meet the product family<Icon name="arrow" /></a></div>
           </div>
         </section>
       </main>
@@ -157,13 +157,14 @@ export default function App() {
           <div className="footer-brand"><BrandLogo footer /><p>{brand.shortDescriptor}</p></div>
           <nav className="footer-nav" aria-label="Footer navigation"><p className="footer-label">Explore</p>{navigation.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}<a href="#contact">Contact</a><a href="/support/">Support</a><a href="/privacy/">Privacy Policy</a></nav>
           <div className="footer-contact" id="contact">
-            <h2 className="footer-label">Stay connected</h2>
+            <h2 className="footer-label">Get in touch</h2>
+            <p className="contact-intro">Interested in PIT Agro, field trials or future product access? Get in touch.</p>
             <div className="social-links">
               {contactConfig.linkedinUrl ? <a className="social-button" href={contactConfig.linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label="PITAGRO on LinkedIn (opens in a new tab)"><Icon name="linkedin" /></a> : <button className="social-button" type="button" aria-label="LinkedIn page coming soon" onClick={linkedinPending}><Icon name="linkedin" /></button>}
               {contactConfig.email ? <a className="social-button" href={`mailto:${contactConfig.email}`} aria-label="Email PITAGRO"><Icon name="mail" /></a> : <button className="social-button" type="button" aria-label="Email contact coming soon" onClick={() => setContactNotice('Our public email address will be added here soon.')}><Icon name="mail" /></button>}
             </div>
             {contactConfig.linkedinUrl ? <a className="linkedin-follow" href={contactConfig.linkedinUrl} target="_blank" rel="noopener noreferrer"><Icon name="linkedin" />Follow PIT Agro on LinkedIn</a> : <button className="linkedin-follow" type="button" onClick={linkedinPending}><Icon name="linkedin" />Follow PIT Agro on LinkedIn</button>}
-            {contactConfig.email && <a href={`mailto:${contactConfig.email}`}>{contactConfig.email}</a>}
+            {contactConfig.email && <a className="contact-email" href={`mailto:${contactConfig.email}`}>{contactConfig.email}</a>}
             <p className="contact-notice" role="status">{contactNotice || (!contactConfig.linkedinUrl && !contactConfig.email ? 'Contact channels are being prepared.' : '')}</p>
           </div>
         </div>
