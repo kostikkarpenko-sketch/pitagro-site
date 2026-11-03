@@ -10,7 +10,12 @@ export const brand = {
 };
 export const contactConfig = publicContact;
 // Only populate this with a real, owner-approved video.
-export const mediaConfig = { sampleVideoUrl: '' };
+export const mediaConfig = {
+  sampleVideoUrl: '', // A brand film is not a PIT Sample application demonstration.
+  brandFilmUrl: 'https://www.youtube.com/shorts/y0P5jZ_ilMw',
+  youtubeUrl: 'https://www.youtube.com/@PITAgroUK',
+  instagramUrl: 'https://www.instagram.com/pitagro.app/',
+};
 
 export type ProductModule = {
   id: string;
@@ -26,10 +31,13 @@ export type ProductModule = {
 export const productModules: ProductModule[] = [
   { id: 'sample', name: 'PIT Sample', status: 'Field-tested prototype', icon: '/brand/pit-sample-icon.png', summary: 'Guided sampling workflows with route planning, field guidance and records.' },
   { id: 'point', name: 'PIT Point', status: 'Field-tested prototype', icon: '/brand/pit-point-icon.png', summary: 'Precision navigation for reaching and revisiting important field locations.' },
-  { id: 'lens', name: 'PIT Lens', status: 'In development', icon: '/brand/pit-lens-icon.png', summary: 'Being developed for crop and trial monitoring over time with PITCam.' },
+  { id: 'lens', name: 'PITSense', status: 'In development', icon: '/brand/pit-lens-icon.png', summary: 'Crop and trial observation with PITCam. Soil-moisture and leaf-wetness monitoring are planned extensions.' },
   { id: 'sky', name: 'PIT Sky', status: 'Planned', icon: '/brand/pit-sky-icon.png', summary: 'Aerial crop observation and field mapping.' },
-  { id: 'scout', name: 'PIT Scout', status: 'Product preview', icon: '/brand/pit-scout-icon.png', summary: 'Field scouting. Product details to follow.' },
-  { id: 'yield', name: 'PIT Yield', status: 'In development', summary: 'Product details will be shared as development progresses.' },
+  { id: 'scout', name: 'PIT Scout', status: 'In development', icon: '/brand/pit-scout-icon.png', summary: 'Record field walks, photos and observations, then bring the visit together in a report.' },
+  { id: 'yield', name: 'PIT Yield', status: 'In development', icon: '/brand/pit-yield-logo.jpg', summary: 'An early development direction focused on yield potential. Product details will follow.' },
+  { id: 'support', name: 'PIT Support', status: 'In development', icon: '/brand/pit-support-icon.png', summary: 'Weather, agricultural information and market context to help plan fieldwork.' },
+  { id: 'sport', name: 'PIT Sport', status: 'In development', icon: '/brand/pit-sport-icon.jpg', summary: 'Workout logging and FIELD FIT movement routines built around the agricultural working day.' },
+  { id: 'strategy', name: 'PIT Strategy', status: 'In development', icon: '/brand/pit-strategy-mark.svg', summary: 'An agricultural strategy game exploring crop rotation and field decisions through fictional farming scenarios.' },
 ];
 
 export const hero = {
@@ -43,7 +51,7 @@ export const hero = {
 
 export const sampleSection = {
   heading: 'Guided sampling. Clear records.',
-  blurb: 'Our most developed product, currently being field-tested. Plan a route, follow it in the field and record your sampling work. Not yet publicly released.',
+  blurb: 'Our flagship product, field-tested and being prepared for iOS release. Plan a route, follow it in the field and record your sampling work. Not yet publicly released.',
   steps: [
     { title: 'Plan', description: 'Prepare your sampling route before heading out.', image: '/media/workflow-plan.png', alt: 'Field map, notebook and laptop on a farm workbench.' },
     { title: 'Navigate', description: 'Follow the route through the field.', image: '/media/pitagro-hero-field.jpg', alt: 'A field operator using a phone among growing crops.' },

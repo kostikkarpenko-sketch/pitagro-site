@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { about, brand, contactConfig, hero, productModules, recordPreview, sampleSection } from './data/siteConfig';
+import { about, brand, contactConfig, hero, mediaConfig, productModules, recordPreview, sampleSection } from './data/siteConfig';
 import { ProductPreview } from './components/ProductPreview';
 
 const navigation = [
@@ -8,9 +8,11 @@ const navigation = [
   { label: 'About', href: '#about' },
 ];
 
-function Icon({ name }: { name: 'arrow' | 'menu' | 'close' | 'mail' | 'play' | 'check' | 'field' | 'route' | 'linkedin' }) {
+function Icon({ name }: { name: 'arrow' | 'menu' | 'close' | 'mail' | 'play' | 'check' | 'field' | 'route' | 'linkedin' | 'youtube' | 'instagram' }) {
   if (name === 'linkedin') return <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96C2 21.32 2.69 22 3.55 22h16.9c.86 0 1.55-.68 1.55-1.52V3.52C22 2.68 21.31 2 20.45 2ZM7.93 18.74H4.98V9.2h2.95v9.54ZM6.46 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42Zm12.28 10.84h-2.95V14.1c0-1.1-.02-2.52-1.54-2.52-1.54 0-1.78 1.2-1.78 2.44v4.72H9.52V9.2h2.83v1.3h.04c.4-.74 1.36-1.53 2.8-1.53 3 0 3.55 1.97 3.55 4.53v5.24Z" /></svg>;
   return <svg className="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    {name === 'youtube' && <><rect x="2" y="5" width="20" height="14" rx="4" /><path d="m10 9 5 3-5 3Z" /></>}
+    {name === 'instagram' && <><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r=".7" fill="currentColor" stroke="none" /></>}
     {name === 'arrow' && <><path d="M4 12h15M13 6l6 6-6 6" /></>}
     {name === 'menu' && <path d="M3 7h18M3 17h18" />}
     {name === 'close' && <path d="m5 5 14 14M5 19 19 5" />}
@@ -117,19 +119,29 @@ export default function App() {
                 <p>{step.description}</p>
               </li>)}
             </ol>
+            <aside className="brand-film" aria-labelledby="brand-film-heading">
+              <a className="brand-film-preview" href={mediaConfig.brandFilmUrl} target="_blank" rel="noopener noreferrer" aria-label="Watch PIT Agro: Practical Technology in the Field on YouTube (opens in a new tab)">
+                <img src="/media/pitagro-hero-field.jpg" width="1280" height="720" alt="" loading="lazy" />
+                <span className="brand-film-play"><Icon name="play" /> Watch on YouTube</span>
+              </a>
+              <div><p className="eyebrow">From the field</p><h3 id="brand-film-heading">Meet PIT Agro in 32 seconds.</h3>
+                <p>A short introduction to practical technology for real fieldwork. This illustrative brand film uses AI-generated scenes; it is not an application demonstration.</p>
+                <a className="text-link" href={mediaConfig.brandFilmUrl} target="_blank" rel="noopener noreferrer">Watch the film <Icon name="arrow" /></a>
+              </div>
+            </aside>
           </div>
         </section>
         <section className="products-section section" id="products" aria-labelledby="products-heading">
           <div className="container">
             <div className="section-heading">
               <div><p className="eyebrow">Beyond sampling</p><h2 id="products-heading">The PIT Agro ecosystem</h2></div>
-              <p className="section-description">Alongside PIT Sample, our wider product family is taking shape around practical field workflows.</p>
+              <p className="section-description">Alongside PIT Sample: field observation, monitoring, weather, movement and agricultural learning. These products are in development or at prototype stage, not publicly released.</p>
             </div>
             <div className="product-grid">
               {productModules.filter((product) => product.id !== 'sample').map((product) => <article className={`product-card product-${product.id}`} aria-labelledby={`product-${product.id}-heading`} key={product.id}>
                 {product.icon ? <ProductIcon src={product.icon} /> : <span className="product-icon" aria-hidden="true" />}
                 <div className="product-card-content">
-                  <h3 id={`product-${product.id}-heading`}>PIT <span>{product.name.replace('PIT ', '')}</span></h3>
+                  <h3 id={`product-${product.id}-heading`}>PIT{product.name.startsWith('PIT ') ? ' ' : ''}<span>{product.name.replace(/^PIT ?/, '')}</span></h3>
                   <p>{product.summary}</p>
                   <span className={`status ${statusClass(product.status)}`}><span className="status-dot" />{product.status}</span>
                   <ProductPreview media={product.preview} />
@@ -137,9 +149,9 @@ export default function App() {
               </article>)}
             </div>
             <aside className="lens-focus" aria-labelledby="lens-focus-heading">
-              <div className="lens-brand"><ProductIcon src="/brand/pit-lens-icon.png" /><span>PIT Lens</span></div>
-              <div className="lens-focus-copy"><p className="eyebrow">Development focus</p><h3 id="lens-focus-heading">A closer view of the field.</h3><p>PIT Lens is being developed for crop and trial monitoring over time with PITCam.</p></div>
-              <div className="lens-definition"><span className="status status-development"><span className="status-dot" />In development</span><dl><div><dt>PIT Lens</dt><dd>The application</dd></div><div><dt>PITCam</dt><dd>The field camera</dd></div></dl></div>
+              <div className="lens-brand"><ProductIcon src="/brand/pit-lens-icon.png" /><span>PITSense</span></div>
+              <div className="lens-focus-copy"><p className="eyebrow">Development focus</p><h3 id="lens-focus-heading">From crop observation to field monitoring.</h3><p>PITSense brings together crop and trial observations with PITCam. Planned soil-moisture, leaf-wetness and other sensor measurements will extend that view from crop establishment through growth and development. Sensor integration is still in development.</p></div>
+              <div className="lens-definition"><span className="status status-development"><span className="status-dot" />In development</span><dl><div><dt>PITSense</dt><dd>The monitoring application</dd></div><div><dt>PITCam</dt><dd>The field camera</dd></div></dl></div>
             </aside>
           </div>
         </section>
@@ -155,11 +167,13 @@ export default function App() {
       <footer className="site-footer">
         <div className="container footer-main">
           <div className="footer-brand"><BrandLogo footer /><p>{brand.shortDescriptor}</p></div>
-          <nav className="footer-nav" aria-label="Footer navigation"><p className="footer-label">Explore</p>{navigation.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}<a href="#contact">Contact</a><a href="/support/">Support</a><a href="/privacy/">Privacy Policy</a></nav>
+          <nav className="footer-nav" aria-label="Footer navigation"><p className="footer-label">Explore</p>{navigation.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}<a href="#contact">Contact</a><a href="/support/">App support</a><a href="/privacy/">Privacy Policy</a></nav>
           <div className="footer-contact" id="contact">
             <h2 className="footer-label">Get in touch</h2>
             <p className="contact-intro">Interested in PIT Agro, field trials or future product access? Get in touch.</p>
             <div className="social-links">
+              <a className="social-button" href={mediaConfig.youtubeUrl} target="_blank" rel="noopener noreferrer" aria-label="PIT Agro on YouTube (opens in a new tab)"><Icon name="youtube" /></a>
+              <a className="social-button" href={mediaConfig.instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="PIT Agro on Instagram (opens in a new tab)"><Icon name="instagram" /></a>
               {contactConfig.linkedinUrl ? <a className="social-button" href={contactConfig.linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label="PITAGRO on LinkedIn (opens in a new tab)"><Icon name="linkedin" /></a> : <button className="social-button" type="button" aria-label="LinkedIn page coming soon" onClick={linkedinPending}><Icon name="linkedin" /></button>}
               {contactConfig.email ? <a className="social-button" href={`mailto:${contactConfig.email}`} aria-label="Email PITAGRO"><Icon name="mail" /></a> : <button className="social-button" type="button" aria-label="Email contact coming soon" onClick={() => setContactNotice('Our public email address will be added here soon.')}><Icon name="mail" /></button>}
             </div>
