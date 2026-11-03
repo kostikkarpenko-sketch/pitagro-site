@@ -37,7 +37,7 @@ export const productModules: ProductModule[] = [
   { id: 'yield', name: 'PIT Yield', status: 'In development', icon: '/brand/pit-yield-logo.jpg', summary: 'An early development direction focused on yield potential. Product details will follow.' },
   { id: 'support', name: 'PIT Support', status: 'In development', icon: '/brand/pit-support-icon.png', summary: 'Weather, agricultural information and market context to help plan fieldwork.' },
   { id: 'sport', name: 'PIT Sport', status: 'In development', icon: '/brand/pit-sport-icon.jpg', summary: 'Workout logging and FIELD FIT movement routines built around the agricultural working day.' },
-  { id: 'strategy', name: 'PIT Strategy', status: 'In development', icon: '/brand/pit-strategy-mark.svg', summary: 'An agricultural strategy game exploring crop rotation and field decisions through fictional farming scenarios.' },
+  { id: 'strategy', name: 'PIT Strategy', status: 'In development', icon: '/brand/pit-strategy-icon.jpg', summary: 'An agricultural strategy game exploring crop rotation and field decisions through fictional farming scenarios.' },
 ];
 
 export const hero = {
