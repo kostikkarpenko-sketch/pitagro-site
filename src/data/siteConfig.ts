@@ -29,11 +29,11 @@ export type ProductModule = {
 // Only use owner-approved product icons and media.
 // Concept images must use kind: 'concept'; they are labelled as design previews.
 export const productModules: ProductModule[] = [
-  { id: 'sample', name: 'PIT Sample', status: 'Field-tested prototype', icon: '/brand/pit-sample-icon.png', summary: 'Guided sampling workflows with route planning, field guidance and records.' },
+  { id: 'sample', name: 'PIT Sample', status: 'Field-tested prototype', icon: '/brand/pit-sample-app-icon.jpg', summary: 'Guided sampling workflows with route planning, field guidance and records.' },
   { id: 'point', name: 'PIT Point', status: 'Field-tested prototype', icon: '/brand/pit-point-icon.png', summary: 'Precision navigation for reaching and revisiting important field locations.' },
-  { id: 'lens', name: 'PITSense', status: 'In development', icon: '/brand/pit-lens-icon.png', summary: 'Crop and trial observation with PITCam. Soil-moisture and leaf-wetness monitoring are planned extensions.' },
+  { id: 'lens', name: 'PITSense', status: 'In development', icon: '/brand/pit-sense-app-icon.jpg', summary: 'Crop and trial observation with PITCam. Soil-moisture and leaf-wetness monitoring are planned extensions.' },
   { id: 'sky', name: 'PIT Sky', status: 'Planned', icon: '/brand/pit-sky-icon.png', summary: 'Aerial crop observation and field mapping.' },
-  { id: 'scout', name: 'PIT Scout', status: 'In development', icon: '/brand/pit-scout-icon.png', summary: 'Record field walks, photos and observations, then bring the visit together in a report.' },
+  { id: 'scout', name: 'PIT Scout', status: 'In development', icon: '/brand/pit-scout-app-icon.jpg', summary: 'Record field walks, photos and observations, then bring the visit together in a report.' },
   { id: 'yield', name: 'PIT Yield', status: 'In development', icon: '/brand/pit-yield-logo.jpg', summary: 'An early development direction focused on yield potential. Product details will follow.' },
   { id: 'support', name: 'PIT Support', status: 'In development', icon: '/brand/pit-support-icon.png', summary: 'Weather, agricultural information and market context to help plan fieldwork.' },
   { id: 'sport', name: 'PIT Sport', status: 'In development', icon: '/brand/pit-sport-icon.jpg', summary: 'Workout logging and FIELD FIT movement routines built around the agricultural working day.' },

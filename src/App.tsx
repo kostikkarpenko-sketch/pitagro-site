@@ -100,7 +100,7 @@ export default function App() {
             <div className="sample-intro">
               <div>
                 <p className="eyebrow flagship-label">Our flagship product</p>
-                <div className="product-lockup"><ProductIcon src="/brand/pit-sample-icon.png" /><span>PIT Sample</span></div>
+                <div className="product-lockup"><ProductIcon src="/brand/pit-sample-app-icon.jpg" /><span>PIT Sample</span></div>
                 <h2 id="sample-heading">Guided sampling.<br />Clear records.</h2>
               </div>
               <div className="sample-intro-copy">
@@ -149,7 +149,7 @@ export default function App() {
               </article>)}
             </div>
             <aside className="lens-focus" aria-labelledby="lens-focus-heading">
-              <div className="lens-brand"><ProductIcon src="/brand/pit-lens-icon.png" /><span>PITSense</span></div>
+              <div className="lens-brand"><ProductIcon src="/brand/pit-sense-app-icon.jpg" /><span>PITSense</span></div>
               <div className="lens-focus-copy"><p className="eyebrow">Development focus</p><h3 id="lens-focus-heading">From crop observation to field monitoring.</h3><p>PITSense brings together crop and trial observations with PITCam. Planned soil-moisture, leaf-wetness and other sensor measurements will extend that view from crop establishment through growth and development. Sensor integration is still in development.</p></div>
               <div className="lens-definition"><span className="status status-development"><span className="status-dot" />In development</span><dl><div><dt>PITSense</dt><dd>The monitoring application</dd></div><div><dt>PITCam</dt><dd>The field camera</dd></div></dl></div>
             </aside>
