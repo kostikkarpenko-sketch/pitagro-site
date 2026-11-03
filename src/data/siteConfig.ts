@@ -34,7 +34,7 @@ export const productModules: ProductModule[] = [
   { id: 'lens', name: 'PITSense', status: 'In development', icon: '/brand/pit-sense-app-icon.jpg', summary: 'Crop and trial observation with PITCam. Soil-moisture and leaf-wetness monitoring are planned extensions.' },
   { id: 'sky', name: 'PIT Sky', status: 'Planned', icon: '/brand/pit-sky-app-icon.jpg', summary: 'Aerial crop observation and field mapping.' },
   { id: 'scout', name: 'PIT Scout', status: 'In development', icon: '/brand/pit-scout-app-icon.jpg', summary: 'Record field walks, photos and observations, then bring the visit together in a report.' },
-  { id: 'yield', name: 'PIT Yield', status: 'In development', icon: '/brand/pit-yield-logo.jpg', summary: 'An early development direction focused on yield potential. Product details will follow.' },
+  { id: 'yield', name: 'PIT Yield', status: 'In development', icon: '/brand/pit-yield-app-icon.jpg', summary: 'An early development direction focused on yield potential. Product details will follow.' },
   { id: 'support', name: 'PIT Support', status: 'In development', icon: '/brand/pit-support-icon.png', summary: 'Weather, agricultural information and market context to help plan fieldwork.' },
   { id: 'sport', name: 'PIT Sport', status: 'In development', icon: '/brand/pit-sport-icon.jpg', summary: 'Workout logging and FIELD FIT movement routines built around the agricultural working day.' },
   { id: 'strategy', name: 'PIT Strategy', status: 'In development', icon: '/brand/pit-strategy-icon.jpg', summary: 'An agricultural strategy game exploring crop rotation and field decisions through fictional farming scenarios.' },
