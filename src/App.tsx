@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { about, brand, contactConfig, hero, mediaConfig, productModules, recordPreview, sampleSection } from './data/siteConfig';
+import { about, brand, contactConfig, hero, mediaConfig, productModules, recordPreview, sampleRelease, sampleSection } from './data/siteConfig';
 import { ProductPreview } from './components/ProductPreview';
 
 const navigation = [
@@ -35,7 +35,7 @@ function ProductIcon({ src, className = '' }: { src?: string; className?: string
 }
 
 function statusClass(status: string) {
-  return status === 'Field-tested prototype' ? 'status-tested' : status === 'In development' ? 'status-development' : 'status-planned';
+  return status === sampleRelease.status ? 'status-tested' : status === 'Field-tested prototype' ? 'status-tested' : status === 'In development' ? 'status-development' : 'status-planned';
 }
 
 export default function App() {
@@ -66,7 +66,7 @@ export default function App() {
           <nav className={`primary-nav ${menuOpen ? 'is-open' : ''}`} id="site-navigation" aria-label="Primary navigation">
             {navigation.map((item) => <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>{item.label}</a>)}
           </nav>
-          <a className="button button-dark header-cta" href="#pit-sample">Explore PIT Sample <Icon name="arrow" /></a>
+          <a className="button button-dark header-cta" href={sampleRelease.appStoreUrl}>Get PIT Sample <Icon name="arrow" /></a>
         </div>
       </header>
       <main id="main-content">
@@ -82,6 +82,7 @@ export default function App() {
                 <div className="hero-actions">
                   <a className="button button-lime" href={hero.primaryCtaTarget}>{hero.primaryCtaLabel}<Icon name="arrow" /></a>
                 </div>
+                <p className="hero-release-note">PIT Sample is now on the UK App Store.</p>
                 <p className="hero-supporting-line">{hero.supportingLine}</p>
               </div>
               <div className="hero-photo-space"><p className="handwritten hero-inscription">It all starts<br />with the soil.</p></div>
@@ -89,7 +90,7 @@ export default function App() {
           </div>
           <div className="proof-strip">
             <div className="container proof-grid" aria-label="PIT Sample at a glance">
-              <p><Icon name="check" /><span>Field-tested prototype</span></p>
+              <p><Icon name="check" /><span>Available on the UK App Store</span></p>
               <p><Icon name="field" /><span>Built around real fieldwork</span></p>
               <p><Icon name="route" /><span>Guided sampling workflow</span></p>
             </div>
@@ -104,11 +105,30 @@ export default function App() {
                 <h2 id="sample-heading">Guided sampling.<br />Clear records.</h2>
               </div>
               <div className="sample-intro-copy">
-                <span className="status status-tested"><span className="status-dot" />Field-tested prototype</span>
-                <p>{sampleSection.blurb}</p><p className="handwritten">From soil to insight.</p>
+                <span className="status status-tested"><span className="status-dot" />{sampleRelease.status}</span>
+                <p>{sampleSection.blurb}</p>
+                <div className="sample-download">
+                  <a className="button button-dark" href={sampleRelease.appStoreUrl}>Download on the App Store <Icon name="arrow" /></a>
+                  <p>{sampleRelease.region}</p>
+                  <p className="sample-purchase-note">{sampleRelease.subscriptionNote}</p>
+                </div>
+                <p className="handwritten">From soil to insight.</p>
               </div>
             </div>
-            <h3 className="workflow-heading" id="workflow-heading">How it works</h3>
+            <section className="sample-quickstart" aria-labelledby="quickstart-heading">
+              <p className="eyebrow">Simple to get started</p>
+              <h3 id="quickstart-heading">Three taps to prepare your sampling route.</h3>
+              <p className="quickstart-context">After initial setup, for fields with an available automatic boundary.</p>
+              <ol className="quickstart-steps">
+                {sampleSection.quickStart.map((step, index) => <li key={step.title}><span className="quickstart-number" aria-hidden="true">{index + 1}</span><div><h4>{step.title}</h4><p>{step.description}</p></div></li>)}
+              </ol>
+              <p className="quickstart-note">Check the generated boundary and route before sampling. You can also draw or edit a boundary manually.</p>
+            </section>
+            <section className="sample-methods" aria-labelledby="methods-heading">
+              <h3 id="methods-heading">Sampling methods for different field tasks.</h3>
+              <ul>{sampleSection.methods.map((method) => <li key={method}><Icon name="check" /><span>{method}</span></li>)}</ul>
+            </section>
+            <h3 className="workflow-heading" id="workflow-heading">From planning to field records</h3>
             <ol className="workflow-grid" aria-labelledby="workflow-heading">
               {sampleSection.steps.map((step, index) => <li className={`workflow-step workflow-${step.title.toLowerCase()}`} key={step.title}>
                 <div className="workflow-media">
