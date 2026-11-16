@@ -1,0 +1,12 @@
+html { color-scheme: light; }
+body { margin: 0; background: #f7f6f1; color: #22362e; font: 16px/1.6 system-ui, sans-serif; }
+header, main, footer { margin: 0 auto; max-width: 46rem; padding: 1.25rem max(1.25rem, env(safe-area-inset-left)); }
+header, footer { display: flex; flex-wrap: wrap; gap: 1.25rem; border-block-end: 1px solid #cbd2ca; }
+header a { font-weight: 750; }
+main { padding-block: 2rem 3rem; }
+h1 { margin: 0 0 .85rem; font-size: clamp(1.9rem, 5vw, 2.65rem); line-height: 1.12; }
+h2 { margin: 2rem 0 .5rem; font-size: 1.25rem; line-height: 1.25; }
+p { margin: 0 0 1rem; }
+.intro { color: #465f52; }
+a { color: #175841; text-underline-offset: .2em; }
+footer { border-block-start: 1px solid #cbd2ca; border-block-end: 0; }
